@@ -25,7 +25,7 @@ void ProcuraPeloServidor() {
     for (int i = 0; i < resultadoDaProcuraPeloServidor; ++i) {
       
       String SSID = WiFi.SSID(i);
-     int32_t RSSI = WiFi.RSSI(i);
+      int32_t RSSI = WiFi.RSSI(i);
       String BSSIDstr = WiFi.BSSIDstr(i);
 
       if (PRINTSCANRESULTS) {
@@ -39,6 +39,7 @@ void ProcuraPeloServidor() {
       }
       
       ledcAttachPin(15, channel);
+      ledcAttachPin(14, channel);
       
       delay(15);
       // Check if the current device starts with `servidor`
@@ -52,11 +53,13 @@ void ProcuraPeloServidor() {
         if(RSSI <= -1 && RSSI >= -60){
          Serial.print("Você chegou.");
         
-        for(int i = 0; i < 5; i++ ){
+        for(int i = 0; i < 2; i++ ){
           ledcWriteTone(channel, 250);
-          delay(2000);
+          ledcWriteTone(channel, HIGH);
+             delay(2000);
           ledcWriteTone(channel, 0);
-          delay(15);
+          ledcWriteTone(channel, LOW);
+             delay(15);
          }               
       }
         if(RSSI <= -61 && RSSI >= -64){
@@ -64,9 +67,11 @@ void ProcuraPeloServidor() {
 
         for(int i = 0; i < 1; i++ ){
          ledcWriteTone(channel, 250);
-         delay(100);
+         ledcWriteTone(channel, HIGH);
+            delay(250);
          ledcWriteTone(channel, 0);
-         delay(250); 
+         ledcWriteTone(channel, LOW);
+            delay(250); 
         }      
       }
       else if(RSSI <= -65 && RSSI >= -69){
@@ -74,9 +79,11 @@ void ProcuraPeloServidor() {
         
       for(int i = 0; i < 2; i++ ){ 
           ledcWriteTone(channel, 250);
-          delay(250);
-          ledcWriteTone(channel, 0);
-          delay(250); 
+          ledcWriteTone(channel, HIGH);
+            delay(250);
+         ledcWriteTone(channel, 0);
+         ledcWriteTone(channel, LOW)
+            delay(250); 
           }           
       }
         else if(RSSI <= -70 && RSSI >= -77){
@@ -84,9 +91,11 @@ void ProcuraPeloServidor() {
         
         for(int i = 0; i < 3; i++ ){
           ledcWriteTone(channel, 250);
-          delay(250);
+          ledcWriteTone(channel, HIGH);
+            delay(250);
           ledcWriteTone(channel, 0);
-          delay(250);
+          ledcWriteTone(channel, LOW)
+            delay(250);
            }
       }
         else if(RSSI <= -78 && RSSI >= -84){
@@ -94,9 +103,11 @@ void ProcuraPeloServidor() {
 
         for(int i = 0; i < 4; i++ ){
           ledcWriteTone(channel, 250);
-          delay(250);
+          ledcWriteTone(channel, HIGH);
+            delay(250);
           ledcWriteTone(channel, 0);
-          delay(250);
+          ledcWriteTone(channel, LOW)
+            delay(250);
         }
       }
         else if(RSSI <= -85 && RSSI >= -86){
@@ -104,9 +115,11 @@ void ProcuraPeloServidor() {
 
         for(int i = 0; i < 5; i++ ){
            ledcWriteTone(channel, 250);
-          delay(250);
-          ledcWriteTone(channel, 0);
-          delay(250);
+           ledcWriteTone(channel, HIGH);
+            delay(250);
+            ledcWriteTone(channel, 0);
+            ledcWriteTone(channel, LOW)
+            delay(250);
         }
       }
         else if(RSSI == -87){
@@ -114,19 +127,22 @@ void ProcuraPeloServidor() {
 
         for(int i = 0; i < 6; i++ ){
           ledcWriteTone(channel, 250);
-          delay(250);
+          ledcWriteTone(channel, HIGH);
+            delay(250);
           ledcWriteTone(channel, 0);
-          delay(250);
+          ledcWriteTone(channel, LOW)
+            delay(250);
         }
       }
         else if(RSSI <= -87 && RSSI >= -92){
         Serial.print("Você está a 7 metros ");
         
         for(int i = 0; i < 7; i++ ){
-          ledcWriteTone(channel, 250);
-          delay(250);
+          ledcWriteTone(channel, HIGH);
+            delay(250);
           ledcWriteTone(channel, 0);
-          delay(750);
+          ledcWriteTone(channel, LOW)
+            delay(250);
         }
       }
         else if(RSSI <= -83 && RSSI >= -94){
@@ -134,9 +150,11 @@ void ProcuraPeloServidor() {
         
         for(int i = 0; i < 8; i++ ){
           ledcWriteTone(channel, 250);
-          delay(250);
+          ledcWriteTone(channel, HIGH);
+              delay(250);
           ledcWriteTone(channel, 0);
-          delay(250);
+          ledcWriteTone(channel, LOW)
+              delay(250);
         }
       }
         else if(RSSI == -95){
@@ -144,9 +162,11 @@ void ProcuraPeloServidor() {
         
         for(int i = 0; i < 9; i++ ){
           ledcWriteTone(channel, 250);
-          delay(250);
-          ledcWriteTone(channel, 0);
-          delay(250);
+          ledcWriteTone(channel, HIGH);
+            delay(250);
+         ledcWriteTone(channel, 0);
+         ledcWriteTone(channel, LOW)
+            delay(250);
         }
       }
         else if(RSSI == -96){
@@ -154,9 +174,11 @@ void ProcuraPeloServidor() {
 
         for(int i = 0; i < 10; i++ ){
           ledcWriteTone(channel, 250);
-          delay(250);
-          ledcWriteTone(channel, 0);
-          delay(250);
+          ledcWriteTone(channel, HIGH);
+            delay(250);
+         ledcWriteTone(channel, 0);
+         ledcWriteTone(channel, LOW)
+            delay(250);
         }
       }
       else if(RSSI < -96){
@@ -164,9 +186,11 @@ void ProcuraPeloServidor() {
        
       for(int i = 0; i < 3; i++ ){
           ledcWriteTone(channel, 250);
-          delay(125);
+          ledcWriteTone(channel, HIGH);
+            delay(125);
           ledcWriteTone(channel, 500);
-          delay(125);
+          ledcWriteTone(channel, LOW);
+            delay(125);
         }
       }
         servidor.channel = CHANNEL; // pick a channel
