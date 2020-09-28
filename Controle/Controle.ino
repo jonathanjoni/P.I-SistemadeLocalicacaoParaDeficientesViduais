@@ -42,14 +42,12 @@ void ProcuraPeloServidor() {
       ledcAttachPin(14, channel);
       
       delay(15);
-      // Check if the current device starts with `servidor`
+      
       if (SSID.indexOf("servidor") == 0) {
-        // SSID of interest
+        
         Serial.println("servidor Encontrado.");
         Serial.print(i + 1); Serial.print(": "); Serial.print(SSID); Serial.print(" ["); Serial.print(BSSIDstr); Serial.print("]"); Serial.print(" ("); Serial.print(RSSI); Serial.print(")"); Serial.println("");
-        // Get BSSID => Mac Address of the servidor
-          
-          
+                  
         if(RSSI <= -1 && RSSI >= -60){
          Serial.print("Você chegou.");
         
@@ -207,13 +205,11 @@ void ProcuraPeloServidor() {
     ledcWriteTone(channel, 0);
           delay(1000); //Adicionar beep de 5s
   }
-
   // limpa a RAM
   WiFi.scanDelete();
 }
 
 uint8_t data = 0;
-// send data
 void sendData() {
   data++;
   const uint8_t *peer_addr = servidor.peer_addr;
@@ -223,7 +219,6 @@ void sendData() {
   if (result == ESP_OK) {
     Serial.println("Success");
   } else if (result == ESP_ERR_ESPNOW_NOT_INIT) {
-    // How did we get so far!!
     Serial.println("ESPNOW not Init.");   
   }
 }
@@ -232,31 +227,28 @@ void sendData() {
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
   char macStr[18];
   snprintf(macStr, sizeof(macStr), "%02x:%02x:%02x:%02x:%02x:%02x",
-           mac_addr[0], mac_addr[1], mac_addr[2], mac_addr[3], mac_addr[4], mac_addr[5]);
+  mac_addr[0], mac_addr[1], mac_addr[2], mac_addr[3], mac_addr[4], mac_addr[5]);
   Serial.print("Last Packet Sent to: "); Serial.println(macStr);
   Serial.print("Last Packet Send Status: "); Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
 }
 
 void setup() { 
   Serial.begin(9600);
-  //Set device in STA mode to begin with
+
   WiFi.mode(WIFI_STA);
+  
   Serial.println("ESPNow/Basic/Master Example");
-  // This is the mac address of the Master in Station Mode
   Serial.print("STA MAC: "); Serial.println(WiFi.macAddress());
-  // Init ESPNow with a fallback logic
   
   esp_now_register_send_cb(OnDataSent);
 }
 
 void loop() {
-  // In the loop we scan for servidor
   ProcuraPeloServidor();
 
-  if (servidor.channel == CHANNEL) {
-      
-  sendData();   
+  if (servidor.channel == CHANNEL) {     
+   
+   sendData();   
    delay(15); 
 }
- 
 }
