@@ -80,7 +80,7 @@ void ProcuraPeloServidor() {
           ledcWriteTone(channel, HIGH);
             delay(250);
          ledcWriteTone(channel, 0);
-         ledcWriteTone(channel, LOW)
+         ledcWriteTone(channel, LOW);
             delay(250); 
           }           
       }
@@ -92,7 +92,7 @@ void ProcuraPeloServidor() {
           ledcWriteTone(channel, HIGH);
             delay(250);
           ledcWriteTone(channel, 0);
-          ledcWriteTone(channel, LOW)
+          ledcWriteTone(channel, LOW);
             delay(250);
            }
       }
@@ -104,7 +104,7 @@ void ProcuraPeloServidor() {
           ledcWriteTone(channel, HIGH);
             delay(250);
           ledcWriteTone(channel, 0);
-          ledcWriteTone(channel, LOW)
+          ledcWriteTone(channel, LOW);
             delay(250);
         }
       }
@@ -116,7 +116,7 @@ void ProcuraPeloServidor() {
            ledcWriteTone(channel, HIGH);
             delay(250);
             ledcWriteTone(channel, 0);
-            ledcWriteTone(channel, LOW)
+            ledcWriteTone(channel, LOW);
             delay(250);
         }
       }
@@ -128,7 +128,7 @@ void ProcuraPeloServidor() {
           ledcWriteTone(channel, HIGH);
             delay(250);
           ledcWriteTone(channel, 0);
-          ledcWriteTone(channel, LOW)
+          ledcWriteTone(channel, LOW);
             delay(250);
         }
       }
@@ -139,7 +139,7 @@ void ProcuraPeloServidor() {
           ledcWriteTone(channel, HIGH);
             delay(250);
           ledcWriteTone(channel, 0);
-          ledcWriteTone(channel, LOW)
+          ledcWriteTone(channel, LOW);
             delay(250);
         }
       }
@@ -151,7 +151,7 @@ void ProcuraPeloServidor() {
           ledcWriteTone(channel, HIGH);
               delay(250);
           ledcWriteTone(channel, 0);
-          ledcWriteTone(channel, LOW)
+          ledcWriteTone(channel, LOW);
               delay(250);
         }
       }
@@ -163,7 +163,7 @@ void ProcuraPeloServidor() {
           ledcWriteTone(channel, HIGH);
             delay(250);
          ledcWriteTone(channel, 0);
-         ledcWriteTone(channel, LOW)
+         ledcWriteTone(channel, LOW);
             delay(250);
         }
       }
@@ -175,7 +175,7 @@ void ProcuraPeloServidor() {
           ledcWriteTone(channel, HIGH);
             delay(250);
          ledcWriteTone(channel, 0);
-         ledcWriteTone(channel, LOW)
+         ledcWriteTone(channel, LOW);
             delay(250);
         }
       }
